@@ -1,0 +1,25 @@
+---
+# tasks file for moon_test
+- name: Update Ubuntu cache
+  apt:
+    update_cache: true 
+    force_apt_get: true
+    cache_valid_time: 3600
+- name: Install Apache2 webserver
+  apt:
+    name: apache2
+    update_cache: true
+    state: latest
+- name: Enable mod_rewrite
+  apache2_module:
+    name: rewrite
+    state: present
+  notify:
+    - Restart apache2
+- name: Copy index file
+  template: 
+    src: index.j2
+    dest: "{{ dest_path }}/index.html"
+    mode: 0755
+  notify:
+    - Restart apache2

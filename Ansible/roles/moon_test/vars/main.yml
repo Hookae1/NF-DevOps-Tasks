@@ -1,0 +1,3 @@
+---
+# vars file for moon_test
+dest_path: /var/www/html/     

@@ -1,0 +1,10 @@
+<html>
+   <head>
+       <title>Welcome to {{ ansible_hostname }} !</title>
+   </head>
+   <body>
+       <h1><center>Success! The {{ ansible_hostname }} virtual host is working!</center></h1>
+       <h2><center>This Apache2 web-server deployed by using Terraform + Ansible</center></h2>
+       <h2><center><font color="gold">Server Public IP Address: {{ ansible_host }}</center></h2>
+   </body>
+</html>

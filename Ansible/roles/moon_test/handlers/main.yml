@@ -1,0 +1,6 @@
+---
+# handlers file for moon_test
+- name: Restart apache2
+  service:
+    name: apache2
+    state: restarted

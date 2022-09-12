@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "disks_Server1_OsDisk_1_d0bba6a07ec346bb93f477ed9c9b19cd_externalid": {
+      "type": "String"
+    },
+    "networkInterfaces_server1879_externalid": {
+      "type": "String"
+    },
+    "virtualMachines_Server1_name": {
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2022-03-01",
+      "location": "westeurope",
+      "name": "[parameters('virtualMachines_Server1_name')]",
+      "properties": {
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_B2ms"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[parameters('networkInterfaces_server1879_externalid')]",
+              "properties": {
+                "deleteOption": "Detach"
+              }
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "azureuser",
+          "allowExtensionOperations": true,
+          "computerName": "[parameters('virtualMachines_Server1_name')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "patchSettings": {
+              "assessmentMode": "ImageDefault",
+              "patchMode": "ImageDefault"
+            },
+            "provisionVMAgent": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1DeOpz1qbw1XaDGFU+ZAwtR5WbiCgtEi4uNVJOkuT5wIWyCGkFj52qXlLtcVOpAUdYDS/VmGxmM2FKEU2TaEbYwbDhzsqM9HoF48rnJ9XiTzDKfJrPrv6scIpqeD3UM8k2csOqcN4BdrfH+Wa8NYD6T+nKwUvneODJNY8KgV8IbUQGBPNJeR+EV5k9ME+xYUeTqWx1DzydqqkLcn9OkGn2FNNlgPjvNZlACUYzEWRhCSPAG2Anh+fdoakEe02Xs5yO0F4DUV0Djh0qppDOTN2B+QMxWXQWx6bPxdk73CMyJzyDtC4GfuJ43YRgwbDBp9G5ljEr7PdSj+4+g+A/hhsh0BOCWNyiQ/ekfjQFLiQ/L+38gPJjsitD16FmP86KzIHWqqBXSb+oTuD6M64MGDJV3z4R7SsEEH147FLlts14hAB+ZODO4ZY4pPTyIxZjWrT1Kfs0PXh/K9DfPwm3skBc6kRdBHqNkt5TpFW2OUisTofTE0hTR/VLQ7e4aSnrUk= generated-by-azure",
+                  "path": "/home/azureuser/.ssh/authorized_keys"
+                }
+              ]
+            }
+          },
+          "requireGuestProvisionSignal": true,
+          "secrets": []
+        },
+        "storageProfile": {
+          "dataDisks": [],
+          "imageReference": {
+            "offer": "0001-com-ubuntu-server-focal",
+            "publisher": "canonical",
+            "sku": "20_04-lts-gen2",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "deleteOption": "Delete",
+            "diskSizeGB": 30,
+            "managedDisk": {
+              "id": "[parameters('disks_Server1_OsDisk_1_d0bba6a07ec346bb93f477ed9c9b19cd_externalid')]",
+              "storageAccountType": "StandardSSD_LRS"
+            },
+            "name": "[concat(parameters('virtualMachines_Server1_name'), '_OsDisk_1_d0bba6a07ec346bb93f477ed9c9b19cd')]",
+            "osType": "Linux"
+          }
+        }
+      },
+      "type": "Microsoft.Compute/virtualMachines"
+    }
+  ],
+  "variables": {}
+}

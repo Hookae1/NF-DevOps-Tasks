@@ -73,7 +73,6 @@ jobs:
     runs-on: self-hosted
     needs: [terraform]
     steps:
-      - uses: actions/checkout@v3.0.0
       - name: Run Ansible playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0
         with:
@@ -86,7 +85,6 @@ jobs:
     runs-on: self-hosted
     needs: [terraform]
     steps:
-      - uses: actions/checkout@v3.0.0
       - name: Run ansible-lint
         uses: ansible-community/ansible-lint-action@v6.0.2
         with:

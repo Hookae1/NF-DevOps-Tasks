@@ -10,8 +10,8 @@
     name: apache2
     update_cache: true
     state: latest
-- name: Enable mod_rewrite
-  apache2_module:
+- name: Enable rewrite
+  community.general.apache2_module:
     name: rewrite
     state: present
   notify:

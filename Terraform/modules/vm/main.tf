@@ -51,14 +51,15 @@ resource "local_file" "save_inventory" {
 
 resource "azurerm_virtual_machine_extension" "toohes_script" {
   name                 = "${var.prefix}-script"
-  virtual_machine_id   = azurerm_virtual_machine.toohes_vm.id
+  virtual_machine_id   = azurerm_linux_virtual_machine.toohes_vm.id
   publisher            = "Microsoft.Azure.Extensions"
   type                 = "CustomScript"
   type_handler_version = "2.1"
 
   settings = <<SETTINGS
     {
-        "fileUris": [" 
-        "commandToExecute": "hostname && uptime"
+        "fileUris": ["https://github.com/Hookae1/NF-DevOps-Tasks/tree/main/Terraform/Customscrpit/runner.sh"], 
+        "commandToExecute": "sh runner.sh"
     }
 SETTINGS
+}

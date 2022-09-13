@@ -48,3 +48,17 @@ resource "local_file" "save_inventory" {
   content                     = data.template_file.inventory.rendered
   filename                    = "../Ansible/inventory"
 }
+
+resource "azurerm_virtual_machine_extension" "toohes_script" {
+  name                 = "${var.prefix}-script"
+  virtual_machine_id   = azurerm_virtual_machine.toohes_vm.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.1"
+
+  settings = <<SETTINGS
+    {
+        "fileUris": [" 
+        "commandToExecute": "hostname && uptime"
+    }
+SETTINGS

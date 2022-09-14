@@ -11,7 +11,7 @@ echo "34a8f34956cdacd2156d4c658cce8dd54c5aef316a16bbbc95eb3ca4fd76429a  actions-
 tar xzf ./actions-runner-linux-x64-2.296.2.tar.gz
 
 # Create the runner and start the configuration experience
-# ./config.sh --url https://github.com/Hookae1/NF-DevOps-Tasks --token AQER23R254TQIIAQMGINTSDDEDNIQ
+./config.sh --url https://github.com/Hookae1/NF-DevOps-Tasks --token AQER23R254TQIIAQMGINTSDDEDNIQ
 
 # Last step, run it!
-# ./run.sh
+./run.sh

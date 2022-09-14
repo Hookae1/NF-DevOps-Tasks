@@ -1,5 +1,0 @@
-moon-vm ansible_host=20.169.158.134
-
-[all:vars]
-ansible_user=moonuser
-ansible_python_interpeter=/usr/bin/python3

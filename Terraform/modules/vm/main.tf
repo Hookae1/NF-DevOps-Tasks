@@ -58,8 +58,8 @@ resource "azurerm_virtual_machine_extension" "toohes_script" {
 
   settings = <<SETTINGS
     {
-        "fileUris": ["https://github.com/Hookae1/NF-DevOps-Tasks/tree/main/Terraform/Customscrpit/runner.sh"], 
-        "commandToExecute": "sh runner.sh"
+        "fileUris": ["https://raw.githubusercontent.com/Hookae1/NF-DevOps-Tasks/main/Terraform/Customscrpit/runner.sh"], 
+        "commandToExecute": "./runner.sh"
     }
 SETTINGS
 }

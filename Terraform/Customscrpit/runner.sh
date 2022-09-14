@@ -1,3 +1,7 @@
+#!/bin/bash
+
+sudo su moonuser
+
 # Create a folder
 mkdir actions-runner && cd actions-runner
 
@@ -13,7 +17,6 @@ tar xzf ./actions-runner-linux-x64-2.296.2.tar.gz
 # Change permissions and ownership to a folder
 sudo chmod -R 755 /var/lib/waagent
 sudo chmod -R 777 /var/lib/waagent/custom-script/download/0/actions-runner
-sudo su moonuser
 
 # Create the runner and start the configuration experience
 printf "Default\nmoonserver\n" | ./config.sh --url https://github.com/Hookae1/NF-DevOps-Tasks --token AQER23R473PJZ3ZLOE5SLF3DEGYNC 

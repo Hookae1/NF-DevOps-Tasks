@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo su moonuser
+exec > /output.txt 2>&1
 
 # Create a folder
 mkdir actions-runner && cd actions-runner

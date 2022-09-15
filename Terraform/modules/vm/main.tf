@@ -62,8 +62,4 @@ resource "azurerm_virtual_machine_extension" "toohes_script" {
         "commandToExecute": "./runner.sh"
     }
 SETTINGS
-
-  timeouts {
-    create = "2m"
-  }
 }

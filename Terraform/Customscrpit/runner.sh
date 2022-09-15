@@ -24,4 +24,4 @@ printf "Default\nmoonserver\n" | RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url ht
 # Last step, run it!
 RUNNER_ALLOW_RUNASROOT="1" ./run.sh
 
-exit 0
+exit 1

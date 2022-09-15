@@ -19,7 +19,7 @@ sudo chmod -R 755 /var/lib/waagent
 sudo chmod -R 777 /var/lib/waagent/custom-script/download/0/actions-runner
 
 # Create the runner and start the configuration experience
-printf "Default\nmoonserver\n" | RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/Hookae1/NF-DevOps-Tasks --token AQER23ROYHS2Q7KSRMZJIETDEMT62 
+printf "Default\nmoonserver\n" | RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/Hookae1/NF-DevOps-Tasks --token AQER23RPVGL3R27R64LWWOTDEMVCC 
 
 # Last step, run it!
 RUNNER_ALLOW_RUNASROOT="1" ./run.sh
